@@ -1,10 +1,10 @@
 //const { ethers, upgrades } = require("hardhat");
 
 async function main (){
-    const Box = await ethers.getContractFactory("Box");
-    console.log("Deploying proxy, box implementation, and proxy admin...");
-    const boxProxy = await upgrades.deployProxy(Box, [42], { initializer: 'store' })
-    console.log("BoxProxy deployed to: ", boxProxy.address)
+    const UNFT = await ethers.getContractFactory("UpgradeableNFT");
+    console.log("Deploying proxy, implementation, and proxy admin...");
+    const unftProxy = await upgrades.deployProxy(UNFT, [], { initializer: 'initialize' })
+    console.log("UpgradeableNFTProxy deployed to: ", unftProxy.address)
 }
 
 main()
