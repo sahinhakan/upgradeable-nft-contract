@@ -4,6 +4,7 @@ async function main (){
     const UNFT = await ethers.getContractFactory("UpgradeableNFT");
     console.log("Deploying proxy, implementation, and proxy admin...");
     const unftProxy = await upgrades.deployProxy(UNFT, [], { initializer: 'initialize' })
+    
     console.log("UpgradeableNFTProxy deployed to: ", unftProxy.address)
 }
 
